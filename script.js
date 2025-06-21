@@ -1,5 +1,3 @@
-
-
 function getComputerChoice() {
     let computerChoice;
     let token = Math.floor(Math.random() * 3);
@@ -21,11 +19,7 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    function playRound (humanChoice, computerChoice) {
+function playRound (humanChoice, computerChoice) {
     
         if (humanChoice === "ROCK" & computerChoice === "SCISSOR" ||
             humanChoice === "SCISSOR" & computerChoice === "PAPER" ||
@@ -49,15 +43,38 @@ function playGame() {
             console.log(`It's a tie! Try again`)
         }  
     }
+
+function renderChoices() {
+
+    const gameArea = document.querySelector('.gameArea');
+
+    const rockBtn = document.createElement('button');
+    rockBtn.innerHTML = 'Rock';
+    const paperBtn = document.createElement('button');
+    paperBtn.innerHTML = 'Paper';
+    const scissorBtn = document.createElement('button');
+    scissorBtn.innerHTML = 'Scissor';
+    gameArea.appendChild(rockBtn);
+    gameArea.appendChild(paperBtn);
+    gameArea.appendChild(scissorBtn);
+
+}
+
+function playGame() {
+
+
+    /* renderChoices(); */
     
-/*     for (i = 0; i < 5; i++) {
+    let humanScore = 0;
+    let computerScore = 0;
+    
+    
+    for (i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice().toUpperCase();
         const computerSelection = getComputerChoice();
         
         playRound(humanSelection, computerSelection);
-    } */
-
-
+    }
     
     console.log(`Human Score: ${humanScore} | Computer Score: ${computerScore}`);
     if (humanScore > computerScore) {
@@ -67,6 +84,25 @@ function playGame() {
     } else {
         console.log("The game ends in a TIE!")
     }
+
+    /* startBtn.style.display = 'block' */
+
+
 }
+
+/*
+1. Clica Start Game
+2. Botão start game some
+3. Aparece: Placar atual e Três botões para seleção
+4. Após a última seleção, três botões somem, aparece botão jogar novamente, placar final com resultado
+*/
+
+// selecionando botão start
+const startBtn = document.querySelector('.startBtn');
+
+startBtn.addEventListener('click', () => {
+    startBtn.style.display = 'none'
+    playGame();
+});
 
 

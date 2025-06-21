@@ -50,12 +50,14 @@ function playGame() {
         }  
     }
     
-    for (i = 0; i < 5; i++) {
+/*     for (i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice().toUpperCase();
         const computerSelection = getComputerChoice();
         
         playRound(humanSelection, computerSelection);
-    }
+    } */
+
+
     
     console.log(`Human Score: ${humanScore} | Computer Score: ${computerScore}`);
     if (humanScore > computerScore) {
@@ -66,3 +68,5 @@ function playGame() {
         console.log("The game ends in a TIE!")
     }
 }
+
+
